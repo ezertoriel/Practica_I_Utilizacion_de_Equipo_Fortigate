@@ -1,0 +1,75 @@
+enable
+configure terminal
+hostname Usuarios-Swi
+no ip domain-lookup
+spanning-tree mode rapid-pvst 
+enable secret Contraseñassecretas
+line console 0
+password Ezequiel
+login
+exit
+line vty 0 4
+password Ezequiel
+login
+exit
+banner motd #Advertencia, Solo Personal Autorizado#
+service password-encryption
+ip default-gateway 172.8.63.129
+vlan 10
+name Usuarios
+exit
+vlan 15
+name Servers
+exit
+
+
+interface gig0/0
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk nonegotiate
+switchport trunk allow vlan 1,10,15
+no shutdown
+exit
+
+interface gig0/1
+switchport mode access
+switchport access vlan 10
+switchport port-security
+switchport port-security maximum 2
+switchport port-security violation shutdown
+spanning-tree portfast
+spanning-tree bpduguard enable 
+no shutdown
+exit
+
+interface gig0/2
+switchport mode access
+switchport access vlan 15
+switchport port-security
+switchport port-security maximum 2
+switchport port-security violation shutdown
+spanning-tree portfast
+spanning-tree bpduguard enable 
+no shutdown
+exit
+
+interface gig0/3
+switchport mode access
+switchport access vlan 15
+switchport port-security
+switchport port-security maximum 2
+switchport port-security violation shutdown
+spanning-tree portfast
+spanning-tree bpduguard enable 
+no shutdown
+exit
+
+access-list 105 remark Solo permitir transito por el puerto 3306, al servidor web.
+access-list 105 permit tcp host 172.8.63.131 eq 3306 host 172.8.63.130 eq 3306
+access-list 105 permit udp host 172.8.63.131 eq 3306 host 172.8.63.130 eq 3306
+
+interface gig0/2
+ip access-group 105 in 
+exit
+exit
+copy running-config startup-config
