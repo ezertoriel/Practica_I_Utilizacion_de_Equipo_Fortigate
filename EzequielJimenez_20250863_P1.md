@@ -26,7 +26,8 @@ Enlace del Video Aquí.
 
 ### I. Imagen de la topología:
 
-*(Imagen de la topología de red: Nube "Net" conectada a Fortinet (port1), Fortinet (port2) conectado a un Switch (Gi0/0), el Switch conectado a una Linux PC (Gi0/1, VLAN 10, IP - DHCP), a un Web Server (Gi0/3, VLAN 15, 172.8.63.130) y a un DB Server (Gi0/2, VLAN 15, 172.8.63.131))*
+<img width="741" height="775" alt="image" src="https://github.com/user-attachments/assets/79a376bc-9965-4e4a-b15e-e6be76f4f049" />
+
 
 ---
 
@@ -57,5 +58,6 @@ Aquí encontrara información de los componentes de la topología. Que fueron es
 ---
 
 ## IV. Diagrama de la topología.
+<img width="727" height="761" alt="image" src="https://github.com/user-attachments/assets/52be0547-1dc3-46e6-b61c-04c00677d8ea" />
 
-*(Diagrama de la topología de red: Nube "Net" conectada a Fortinet (port1), Fortinet (port2) conectado a un Switch (Gi0/0), el Switch conectado a una Linux PC (Gi0/1, VLAN 10, IP - DHCP), a un Web Server (Gi0/3, VLAN 15, 172.8.63.130) y a un DB Server (Gi0/2, VLAN 15, 172.8.63.131))*
+
